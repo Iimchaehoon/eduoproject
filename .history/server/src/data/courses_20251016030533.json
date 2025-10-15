@@ -1,0 +1,75 @@
+[
+  {
+    "id": "c1",
+    "title": "파이썬 객체지향 프로그래밍",
+    "provider": "서울대학교",
+    "thumbnail": "python.png",
+    "rating": 4.8,
+    "tags": [
+      "개발",
+      "파이썬",
+      "AI추천"
+    ],
+    "duration": "14주"
+  },
+  {
+    "id": "c2",
+    "title": "데이터 시각화 마스터클래스",
+    "provider": "연세대학교",
+    "thumbnail": "pyton_data.png",
+    "rating": 4.7,
+    "tags": [
+      "데이터",
+      "시각화"
+    ],
+    "duration": "8주"
+  },
+  {
+    "id": "c3",
+    "title": "신경망 및 딥러닝",
+    "provider": "한양대학교",
+    "thumbnail": "deep.png",
+    "rating": 4.9,
+    "tags": [
+      "AI",
+      "딥러닝"
+    ],
+    "duration": "14주"
+  },
+  {
+    "id": "c4",
+    "title": "전기자동차 배터리 시스템",
+    "provider": "KAIST",
+    "thumbnail": "battery.png",
+    "rating": 4.6,
+    "tags": [
+      "공학",
+      "배터리"
+    ],
+    "duration": "12주"
+  },
+  {
+    "id": "c5",
+    "title": "블록체인 실무",
+    "provider": "POSTECH",
+    "thumbnail": "block.png",
+    "rating": 4.5,
+    "tags": [
+      "블록체인",
+      "보안"
+    ],
+    "duration": "10주"
+  },
+  {
+    "id": "c6",
+    "title": "파이썬과 판다스로 데이터 분석",
+    "provider": "성균관대학교",
+    "thumbnail": "pandas.png",
+    "rating": 4.7,
+    "tags": [
+      "데이터",
+      "파이썬"
+    ],
+    "duration": "6주"
+  }
+]
