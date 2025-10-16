@@ -1,0 +1,24 @@
+/* src/styles/index.css */
+
+/* Tailwind 사용 중이면 이 세 줄 유지 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 프로젝트 공통 스타일(선택) */
+:root {
+  --ring: #e5e7eb;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 버튼 프리셋(이미 있다면 생략 가능) */
+.btn { @apply inline-flex items-center justify-center rounded-lg px-4 h-10 text-sm font-semibold; }
+.btn-primary { @apply bg-[#2C6BFF] text-white hover:brightness-110; }
+.btn-ghost { @apply text-slate-700 hover:bg-slate-100; }
+
+/* 경계색(피그마 톤) */
+.border-skin-ring { border-color: var(--ring); }
