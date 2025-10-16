@@ -1,0 +1,59 @@
+import { Link, NavLink } from "react-router-dom";
+
+const Item = ({ to, children }) => (
+  <NavLink
+    to={to}
+    className={({ isActive }) =>
+      `px-3 py-2 rounded-lg hover:bg-slate-100 ${
+        isActive ? "text-[#2C6BFF]" : "text-slate-700"
+      }`
+    }
+  >
+    {children}
+  </NavLink>
+);
+
+export default function Navbar() {
+  return (
+    <header className="bg-white/80 backdrop-blur sticky top-0 z-50 border-b border-slate-200">
+      <div className="max-w-6xl mx-auto px-5 h-16 flex items-center gap-6">
+        <Link to="/" className="flex items-center gap-2">
+          <img
+            src="/img/main_logo.png"
+            alt="EDUO"
+            className="h-10 w-auto object-contain"
+            draggable={false}
+          />
+          <span className="sr-only">EDUO</span>
+        </Link>
+
+        <nav className="hidden md:flex items-center gap-2">
+          <Item to="/mypage">마이페이지</Item>
+          <Item to="/search">전체강좌</Item>
+          <Item to="/community">커뮤니티</Item>
+          {/* 샘플 강좌평가 라우트로 안내 (slug는 실제 강좌 slug로 교체 가능) */}
+          <Item to="/course/py-oop/eval">강의평가</Item>
+        </nav>
+
+        <div className="ml-auto flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-2 rounded-full bg-slate-50 border border-slate-200 px-3 py-2">
+            <img src="/img/search.png" className="w-4 h-4 opacity-60" alt="" />
+            <input
+              placeholder="강의 검색"
+              className="bg-transparent outline-none text-sm w-56"
+            />
+          </div>
+          <Link to="/login" className="px-3 py-2 rounded-lg hover:bg-slate-100">
+            로그인
+          </Link>
+          <Link
+            to="/register"
+            className="px-3 py-2 rounded-lg bg-[#2C6BFF] text-white"
+          >
+            회원가입
+          </Link>
+        </div>
+      </div>
+    </header>
+  );
+}
