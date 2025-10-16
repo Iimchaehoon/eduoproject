@@ -1,21 +1,17 @@
 import { Link } from 'react-router-dom'
-import { pickCourseThumb } from '../utils/imgUtil'
-
-export default function CourseCard({ c }){
+export default function CourseCard({id, title, univ, weeks, img, tags=[]}){
   return (
-    <div className="card overflow-hidden">
-      <div className="h-48 w-full bg-gray-100">
-        <img src={pickCourseThumb(c)} alt={c.title} className="w-full h-full object-cover" />
-      </div>
-      <div className="p-4">
-        <h3 className="font-semibold line-clamp-1">{c.title}</h3>
-        <p className="text-xs text-gray-500 mt-1">{c.provider} · {c.duration}</p>
-        <div className="flex gap-2 mt-2">
-          {c.tags?.slice(0,3).map((t,i)=>(<span key={i} className="badge">{t}</span>))}
+    <div className="card overflow-hidden hover:shadow-soft hover:-translate-y-0.5 hover:scale-[1.02] transition-all duration-200 ease-pleasant">
+      <img src={img} alt={title} className="h-44 w-full object-cover"/>
+      <div className="p-4 space-y-3">
+        <div className="text-sm text-slate-500">{univ} · <span>{weeks}</span></div>
+        <h3 className="font-semibold line-clamp-2">{title}</h3>
+        <div className="flex gap-2 flex-wrap">
+          {tags.map(t => <span key={t} className="badge">#{t}</span>)}
         </div>
-        <div className="mt-4 flex justify-between items-center">
-          <div className="text-sm">⭐ <span className="font-medium">{c.rating}</span></div>
-          <Link to={`/course/${c.id}`} className="btn btn-primary">강좌 보기</Link>
+        <div className="flex gap-2 pt-2">
+          <Link to={`/course/${id}`} className="btn btn-ghost flex-1">강좌 보기</Link>
+          <Link to={`/course-eval/${id}`} className="btn btn-primary flex-1">평가기</Link>
         </div>
       </div>
     </div>
