@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base { body { @apply text-ink antialiased; } }
+@layer utilities {
+  .card { @apply bg-white rounded-2xl shadow-card; }
+  .pill { @apply px-3 py-1 rounded-full bg-white text-sm border border-skin-ring text-slate-600 hover:border-primary; }
+  .btn { @apply inline-flex items-center justify-center rounded-lg px-4 py-2 font-medium transition-transform duration-200 ease-pleasant hover:scale-[1.03]; }
+  .btn-primary { @apply bg-primary text-white shadow-soft hover:shadow-card; }
+  .btn-ghost { @apply bg-white text-slate-700 border border-skin-ring hover:text-ink; }
+  .badge { @apply text-xs px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-600 border border-indigo-100; }
+}
+/* 카드, 버튼 공통 호버 효과(10% 확대) */
+.hover-grow {
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+.hover-grow:hover {
+  transform: scale(1.1); /* 10% */
+}

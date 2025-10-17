@@ -1,0 +1,3 @@
+
+@tailwind base; @tailwind components; @tailwind utilities;
+@layer utilities{ .container-6xl{@apply container max-w-[1200px];} .btn{@apply inline-flex items-center justify-center rounded-md px-4 py-2 font-medium;} .btn-primary{@apply btn bg-primary text-white hover:opacity-90;} .card{@apply bg-white rounded-xl shadow-card;} .pill{@apply rounded-full border px-2.5 py-0.5 text-xs text-gray-600;} }
