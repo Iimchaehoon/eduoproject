@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 베이스 레이어: 전역 기본 스타일 */
+@layer base {
+  html, body, #root { height: 100%; }
+  body { @apply bg-skin-base text-[15px] text-ink-900; }
+}
+
+/* 컴포넌트 레이어: 공통 UI 유틸리티 */
+@layer components {
+  .card { @apply bg-white rounded-2xl shadow-soft; }
+
+  .btn { @apply inline-flex items-center justify-center h-10 px-4 rounded-xl transition; }
+  .btn-primary { @apply btn bg-primary text-white hover:opacity-90; }
+  .btn-ghost { @apply btn bg-slate-100 text-ink-900 hover:bg-slate-200; }
+
+  .pill { @apply h-9 px-3 rounded-full border border-skin-ring bg-white text-[13px]; }
+  .input { @apply h-10 px-3 rounded-xl border border-skin-ring bg-white outline-none; }
+
+  .course-card { @apply transition-transform duration-200 will-change-transform; }
+  .course-card:hover { transform: scale(1.05); }
+
+  .player { @apply bg-[#0F172A] rounded-xl text-slate-200 flex items-center justify-center min-h-[360px]; }
+  .play-btn { @apply w-16 h-16 rounded-full bg-primary text-white text-2xl grid place-items-center shadow-soft; }
+
+  .tab { @apply h-9 px-3 rounded-xl text-[13px]; }
+  .tab-active { @apply bg-indigo-50 text-indigo-700 border border-indigo-100; }
+
+  .grid-3 { @apply grid gap-6 md:grid-cols-3; }
+}

@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 베이스 레이어: 전역 기본 스타일 */
+@layer base {
+  html, body, #root { height: 100%; }
+  body { @apply bg-skin-base text-[15px] text-ink-900; }
+}
+
+/* 컴포넌트 레이어: 공통 UI 유틸리티 */
+@layer components {
+  .card { @apply bg-white rounded-2xl shadow-soft; }
+
+  .btn { @apply inline-flex items-center justify-center h-10 px-4 rounded-xl transition; }
+  .btn-primary { @apply btn bg-primary text-white hover:opacity-90; }
+  .btn-ghost { @apply btn bg-slate-100 text-ink-900 hover:bg-slate-200; }
+
+  .pill { @apply h-9 px-3 rounded-full border border-skin-ring bg-white text-[13px]; }
+  .input { @apply h-10 px-3 rounded-xl border border-skin-ring bg-white outline-none; }
+
+  .course-card { @apply transition-transform duration-200 will-change-transform; }
+  .course-card:hover { transform: scale(1.05); }
+
+  .player { @apply bg-[#0F172A] rounded-xl text-slate-200 flex items-center justify-center min-h-[360px]; }
+  .play-btn { @apply w-16 h-16 rounded-full bg-primary text-white text-2xl grid place-items-center shadow-soft; }
+
+  .tab { @apply h-9 px-3 rounded-xl text-[13px]; }
+  .tab-active { @apply bg-indigo-50 text-indigo-700 border border-indigo-100; }
+
+  .grid-3 { @apply grid gap-6 md:grid-cols-3; }
+}
+@layer components {
+  /* 페이지 베이스 */
+  .bg-skin-base { @apply bg-[#F7F8FB]; }
+  .text-skin-ink { @apply text-slate-900; }
+  .text-skin-muted { @apply text-slate-500; }
+
+  /* 카테고리 타일 (5% 확대) */
+  .category-tile {
+    @apply flex h-20 flex-col items-center justify-center gap-1.5
+           rounded-2xl shadow-sm ring-1 ring-black/5 transition
+           hover:scale-[1.05] hover:shadow-md;
+  }
+
+  /* 검색 바 */
+  .searchbar {
+    @apply flex h-12 w-full max-w-[640px] items-center gap-3
+           rounded-full border border-white/30 bg-white/15 px-4 text-white
+           shadow-[inset_0_1px_0_0_rgba(255,255,255,0.25)] backdrop-blur;
+  }
+  .i-magnify {
+    /* 돋보기 간단 SVG */
+    background: no-repeat center/18px url("data:image/svg+xml,%3Csvg width='20' height='20' fill='none' stroke='white' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9' cy='9' r='6' stroke-width='2'/%3E%3Cpath d='M14 14l4 4' stroke-width='2'/%3E%3C/svg%3E");
+    @apply h-4 w-4 opacity-90;
+  }
+  .i-arrow {
+    background: no-repeat center/16px url("data:image/svg+xml,%3Csvg width='18' height='18' fill='none' stroke='%235B21B6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 9h12M9 3l6 6-6 6' stroke-width='2'/%3E%3C/svg%3E");
+    @apply h-4 w-4;
+  }
+
+  /* 칩/버튼 */
+  .chip {
+    @apply rounded-full bg-white px-4 py-2 text-[13px] font-semibold text-slate-700 shadow-sm hover:bg-white/90;
+  }
+  .chip-ghost {
+    @apply rounded-full border border-white/40 bg-white/10 px-3 py-1.5 text-[12px] text-white/95 shadow-sm backdrop-blur hover:bg-white/15;
+  }
+  .btn-solid {
+    @apply rounded-xl bg-white px-4 py-2 text-[13px] font-semibold text-slate-800 shadow-sm hover:bg-white/90;
+  }
+
+  /* Hero 래핑(높이/레이어) */
+  .hero-wrap { min-height: 420px; }
+}
