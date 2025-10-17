@@ -1,6 +1,5 @@
 // client/src/pages/Home.jsx
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";               // ✅ 추가: 검색어 상태만 사용
 import CourseCard from "../shared/CourseCard.jsx"; // ✅ 공용 카드만 사용
 
 /* ---------- 데이터 ---------- */
@@ -78,7 +77,7 @@ const aiRecs = [
     ai: "AI 일치: 89%",
     tag: "데이터 과학",
     title: "파이썬으로 데이터 과학",
-    img: "/img/pyton_data.png",
+    img: "/img/pyton_data.png", // 업로드하신 파일명 그대로
     rating: 4.8,
     people: "12.4k명",
     slug: "py-data",
@@ -97,14 +96,6 @@ const aiRecs = [
 /* ---------- 페이지 ---------- */
 export default function Home() {
   const nav = useNavigate();
-  const [q, setQ] = useState("");                // ✅ 추가: 검색어 상태
-
-  // ✅ 추가: 검색 실행(엔터/버튼 공용)
-  const goSearch = () => {
-    const keyword = q.trim();
-    if (!keyword) return;
-    nav(`/search?q=${encodeURIComponent(keyword)}`);
-  };
 
   return (
     <div className="bg-[#F7F9FC]">
@@ -166,16 +157,8 @@ export default function Home() {
             <input
               className="ml-2 md:ml-3 flex-1 outline-none text-[13px] md:text-[14px]"
               placeholder="찾고 싶은 강좌를 검색해보세요"
-              value={q}                              // ✅ 추가
-              onChange={(e) => setQ(e.target.value)} // ✅ 추가
-              onKeyDown={(e) => {                    // ✅ 엔터로 이동
-                if (e.key === "Enter") goSearch();
-              }}
             />
-            <button
-              className="ml-2 md:ml-3 px-5 h-9 md:h-10 rounded-full bg-[#E9ECFF] text-[#5B66FF] text-[13px] md:text-sm font-semibold"
-              onClick={goSearch}                     // ✅ 버튼 클릭 시 이동
-            >
+            <button className="ml-2 md:ml-3 px-5 h-9 md:h-10 rounded-full bg-[#E9ECFF] text-[#5B66FF] text-[13px] md:text-sm font-semibold">
               검색
             </button>
           </div>

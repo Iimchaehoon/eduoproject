@@ -1,6 +1,6 @@
 // client/src/pages/Search.jsx
-import { useMemo, useState, useEffect } from "react";
-import { useNavigate, Link, useSearchParams } from "react-router-dom";
+import { useMemo, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 /** 업로드 해둔 이미지 파일명 매핑 (public/img) */
 const IMG = {
@@ -186,12 +186,8 @@ function FilterBox({ label, children }) {
 export default function Search() {
   const nav = useNavigate();
 
-  /** ✅ 추가: URL 쿼리에서 초기 검색어 가져오기 */
-  const [params] = useSearchParams();
-  const initialQ = params.get("q") ?? "";
-
   // 필터 상태
-  const [q, setQ] = useState(initialQ);            // ✅ 초기값을 쿼리로
+  const [q, setQ] = useState("");
   const [category, setCategory] = useState("");
   const [org, setOrg] = useState("");
   const [level, setLevel] = useState("");
@@ -199,21 +195,6 @@ export default function Search() {
   const [teacher, setTeacher] = useState("");
   const [freeOnly, setFreeOnly] = useState(false);
   const [certOnly, setCertOnly] = useState(false); // 데모용
-
-  /** ✅ 추가: URL이 바뀌면 입력칸도 동기화 */
-  useEffect(() => {
-    setQ(initialQ);
-  }, [initialQ]);
-
-  /** ✅ 추가: 첫 진입에 쿼리가 있으면 결과 섹션으로 스크롤 */
-  useEffect(() => {
-    if (initialQ) {
-      document.getElementById("search-results")?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  }, [initialQ]);
 
   // 필터링
   const data = useMemo(() => {
@@ -341,8 +322,7 @@ export default function Search() {
 
       {/* 카드 그리드 */}
       <div className="max-w-[1120px] mx-auto px-5 mt-8 pb-16">
-        {/* ✅ 추가: 결과 섹션 앵커 id */}
-        <div id="search-results" className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {data.map((c) => (
             <CourseCard key={c.slug} course={c} onClick={() => nav(`/course/${c.slug}`)} />
           ))}

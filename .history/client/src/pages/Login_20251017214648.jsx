@@ -8,7 +8,10 @@ export default function Login(){
         <button className="btn btn-ghost w-full">로그인</button>
         <button className="btn btn-primary w-full">회원가입</button>
       </div>
-      
+      <div className="card p-8 mt-6">
+        <div className="text-center text-slate-500 mb-3">SNS 로그인</div>
+        
+      </div>
     </div>
   )
 }
