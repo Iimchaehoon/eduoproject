@@ -2,6 +2,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./styles/tailwind.css";
 
 import App from "./pages/App.jsx";
@@ -15,7 +16,7 @@ import Course from "./pages/Course.jsx";
 import CourseEval from "./pages/CourseEval.jsx";
 import CourseReview from "./pages/CourseReview.jsx";
 
-// 404 페이지 (간단 버전)
+// 간단한 NotFound 컴포넌트(원하면 별도 파일로 빼도 됨)
 const NotFound = () => (
   <div className="max-w-6xl mx-auto px-5 py-24 text-center">
     <div className="text-2xl font-bold">페이지를 찾을 수 없어요</div>
@@ -25,7 +26,7 @@ const NotFound = () => (
 
 const router = createBrowserRouter([
   {
-    element: <App />, // 공통 레이아웃(헤더/푸터 + <Outlet/>)
+    element: <App />,        // 공통 레이아웃
     children: [
       { index: true, element: <Home /> },
       { path: "search", element: <Search /> },
