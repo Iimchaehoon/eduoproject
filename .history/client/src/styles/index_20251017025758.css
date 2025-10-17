@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 전역 배경/텍스트 */
+html, body, #root { height: 100%; }
+body { @apply bg-skin-base text-[15px] text-ink-900; }
+
+/* 공통 카드 */
+.card { @apply bg-white rounded-2xl shadow-soft; }
+
+/* 테마 버튼 */
+.btn { @apply inline-flex items-center justify-center h-10 px-4 rounded-xl transition; }
+.btn-primary { @apply btn bg-primary text-white hover:opacity-90; }
+.btn-ghost { @apply btn bg-slate-100 text-ink-900 hover:bg-slate-200; }
+
+/* 알약형 컨트롤 */
+.pill { @apply h-9 px-3 rounded-full border border-skin-ring bg-white text-[13px]; }
+
+/* 입력 */
+.input { @apply h-10 px-3 rounded-xl border border-skin-ring bg-white outline-none; }
+
+/* 검색 카드 hover 확대 (5%) */
+.course-card { @apply transition-transform duration-200 will-change-transform; }
+.course-card:hover { transform: scale(1.05); }
+
+/* 플레이어 박스 */
+.player {
+  @apply bg-[#0F172A] rounded-xl text-slate-200 flex items-center justify-center;
+  min-height: 360px;
+}
+.play-btn {
+  @apply w-16 h-16 rounded-full bg-primary text-white text-2xl grid place-items-center shadow-soft;
+}
+
+/* 탭 스타일 */
+.tab { @apply h-9 px-3 rounded-xl text-[13px]; }
+.tab-active { @apply bg-indigo-50 text-indigo-700 border border-indigo-100; }
+
+/* 그리드 유틸 */
+.grid-3 { @apply grid gap-6 md:grid-cols-3; }
