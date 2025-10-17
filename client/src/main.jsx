@@ -1,5 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+<<<<<<< HEAD
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./styles/tailwind.css";
 
@@ -34,4 +35,13 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <RouterProvider router={router} />
+=======
+import App from "./pages/App.jsx";
+import "./styles/index.css";
+
+createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+>>>>>>> fd97afd2325a267145c5b014c17ea90741701eb6
 );
